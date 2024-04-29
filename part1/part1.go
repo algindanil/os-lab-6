@@ -1,6 +1,7 @@
 package main
 
 import (
+	"C"
 	"github.com/remeh/sizedwaitgroup"
 	"gonum.org/v1/gonum/mat"
 	"math/rand"
@@ -46,6 +47,7 @@ func ParallelMatMul(left, right *mat.Dense, maxThreads int) *mat.Dense {
 	return resMatrix
 }
 
+//export TimeMatMul
 func TimeMatMul(m, k, n, maxThreads int) int {
 	left := GetRandMatrix(m, k)
 	right := GetRandMatrix(k, n)
